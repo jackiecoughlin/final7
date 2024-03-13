@@ -1,0 +1,62 @@
+[	{
+    "name":"leggings",
+    "price":65,
+    "description":"black full length leggings",
+    "category":["clothing"]
+},
+{
+    "name":"sports bra",
+    "price":30,
+    "description":"purple medium support",
+    "category":["clothing"]
+},
+{
+    "name":"shorts",
+    "price":40,
+    "description":"striped head sweatband",
+    "category":["clothing", "running"]
+},
+{
+    "name":"sweatband",
+    "price":15,
+    "description":"striped head sweatband",
+    "category":["clothing","running"]
+},
+{
+    "name":"sneakers",
+    "price":70,
+    "description":"green running sneakers",
+    "category":["running"]
+},
+{
+    "name":"dumbbells",
+    "price":35,
+    "description":"20 pound free weight dumbbells",
+    "category":["lifting"]
+},
+{
+    "name":"resistance bands",
+    "price":10,
+    "description":"10 pounds yellow resistance band",
+    "category":["lifting"]
+},
+{
+    "name":"creatine",
+    "price":20,
+    "description":"1000mg creatine pill",
+    "category":["lifting"]
+},
+{
+    "name":"protein powder",
+    "price":45,
+    "description":"cookies and cream, 25 grams protein per serving",
+    "category":["lifting"]
+},
+{
+    "name":"caffeine",
+    "price":12,
+    "description":"powder, 150mg caffeine per serving",
+    "category":["lifting"]
+}
+
+]
