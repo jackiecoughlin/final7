@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSONing</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+        <script type="text/javascript">
+            $.get("https://raw.githubusercontent.com/jackiecoughlin/assignment7FINAL/main/products2-1.json",function( data ) {
+                    
+                    str = JSON.stringify(data);	
+                    data = JSON.parse(data);
+                    categories=[];
+    
+                    str = "<ul>";
+                    data.forEach(function(product) { 
+                    str += "<li class=\"product\">"+
+                        "<h1 class=\"name\">" + product.name + "</h1>"
+                        // "<p class=\"price\">" + product.price + "$</p>"+
+                        // "<p class=\"description\">" + product.description + "</p>"
+                        str+="<div class=\"category\">"
+                        //create categories array
+                        for (let i in product.category){ 
+                            if (!categories.includes(product.category[i])) {
+                                categories.push(product.category[i]);
+                            }
+                            str+="<span id=\""+product.category[i]+"\">";
+                        }
+                        str+="</div></li>"
+                    }) 
+                str += "</ul>";
+
+//drop down code
+dropStr="<div id=\"filterBox\"><p>Filter: </p> <select name=\"filter\" id=\"dropDown\" onChange=\"filterFunction(this)\">";
+dropStr+="<option disabled selected value> -- select an option -- </option>";
+
+//read categories from json 
+for(let i in categories){ 
+    dropStr+="<option value=\""+categories[i]+"\">"+categories[i]+"</option>";
+}
+dropStr+="</select></div>";
+str=dropStr+str;
+document.getElementById('json-list').innerHTML = str; 
+})
+
+function filterFunction(select){
+		choose=$('#dropDown option:selected').text();
+		choose="#"+choose;
+		//selects all the categories not chosen
+		notChooseStr=".category:not(:has("+choose+"))";
+		//selects all the categories that are chosen
+		chooseStr=".category:has("+choose+")";
+		//gets rid of parent not picked 
+		$(notChooseStr).parent().css({"display":" none"});
+		//gets rid of parent of picked 
+		$(chooseStr).parent().css({"display":"block"});
+	}
+	</script>
+	<div id="json-list"></div>
+</body>
+</html>
